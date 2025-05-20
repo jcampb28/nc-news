@@ -39,14 +39,26 @@ export function fetchArticleComments(article_id) {
 }
 
 export function patchArticleVotes(article_id, inc_votes) {
-  console.log(inc_votes)
   return apiClient
     .patch(`/articles/${article_id}`, {
       inc_votes: inc_votes,
     })
     .catch((err) => {
-      console.log(err);
+      return Promise.reject(err);
     });
 }
 
-
+export function postCommentOnArticle(article_id, comment) {
+  console.log(article_id, comment)
+  return apiClient
+    .post(`/articles/${article_id}/comments`, {
+      username: comment.username,
+      body: comment.body,
+    })
+    .then((response) => {
+      return response.data
+    })
+    .catch((err) => {
+      return Promise.reject(err);
+    });
+}
