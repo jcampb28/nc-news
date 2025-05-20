@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
 import ArticleCard from "../components/ArticleCard";
-import { getArticles } from "../fetchData";
+import { fetchArticles } from "../fetchData";
 
 function ArticleList() {
-const [articles, setArticles] = useState([])
+const [articleList, setArticleList] = useState([])
 
     useEffect(() => {
-    getArticles().then(({articles}) => {
-      setArticles(articles.resultsArr)
+    fetchArticles().then(({articles}) => {
+      setArticleList(articles.resultsArr)
     });
   }, []);
   
     return (
     <ul className="article-list">
-        {articles.map((article) => {
+        {articleList.map((article) => {
             return <ArticleCard key={article.article_id} article={article}/>
         })}
     </ul>

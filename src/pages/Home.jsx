@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { getArticles } from "../fetchData";
+import { fetchArticles } from "../fetchData";
 
 function Home() {
 const [articles, setArticles] = useState([])
 
     useEffect(() => {
-    getArticles().then(({articles}) => {
+    fetchArticles().then(({articles}) => {
       setArticles(articles)
     });
   }, []);

@@ -5,10 +5,23 @@ const apiClient = axios.create({
   timeout: 1000,
 });
 
-export function getArticles() {
-  return apiClient.get("/articles").then((response) => {
-    return response.data
-  }).catch((err) => {
-    console.log(err)
-  });
+export function fetchArticles() {
+  return apiClient
+    .get("/articles")
+    .then((response) => {
+      return response.data;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
+
+export function fetchArticleByID(article_id) {
+  return apiClient
+    .get(`/articles/${article_id}`)
+    .then((response) => {
+      return response.data;
+    }).catch((err) => {
+        console.log(err)
+    });
 }
