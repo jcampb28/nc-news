@@ -83,4 +83,23 @@ p {
 .article-body {
   text-align: justify;
   padding: 10px;
+  margin-bottom: 15px;
+}
+
+.comment-card {
+  text-align: justify;
+  display: block;
+  margin: 10px;
+  border-top: 1px solid #165e6c;
+  padding-top: 10px
+}
+
+.comment-info {
+  color: #5c4d5f;
+  font-size: 14px;
+  padding-bottom: 3px;
+}
+
+.comment-body {
+  padding-bottom: 8px;
 }

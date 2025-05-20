@@ -25,3 +25,13 @@ export function fetchArticleByID(article_id) {
         console.log(err)
     });
 }
+
+export function fetchArticleComments(article_id) {
+  return apiClient
+  .get(`/articles/${article_id}/comments`)
+  .then((response) => {
+    return response.data
+  }).catch((err) => {
+        console.log(err)
+    });
+}
