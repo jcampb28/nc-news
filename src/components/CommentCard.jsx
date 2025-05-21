@@ -1,13 +1,43 @@
-function CommentCard({comment}) {
-    const shortDate = comment.created_at.slice(0, 10)
-    return (
-        <div className="comment-card">
-        <p className="comment-info">On {shortDate}</p>
+import { useState } from "react";
+import { deleteComment } from "../fetchData";
+
+function CommentCard({ comment, username }) {
+  const [deleted, setDeleted] = useState(false);
+  const [commentToDelete, setCommentToDelete] = useState("")
+  const [isDeleteError, setIsDeleteError] = useState(false);
+
+  function handleDelete(e) {     
+    setCommentToDelete(<p>Comment deleted!</p>)
+    setDeleted(true)
+    deleteComment(comment.comment_id)
+      .then(() => {
+        setIsDeleteError(false);
+      })
+      .catch(() => {
+        setDeleted(false);
+        setIsDeleteError(true);
+      });
+  }
+
+  return (
+    <div className="comment-card">
+      {deleted ? commentToDelete : <>
+        <p className="comment-info">On {comment.created_at}</p>
         <p className="comment-info">{comment.author} said:</p>
         <p className="comment-body">{comment.body}</p>
         <p className="comment-info">Votes: {comment.votes}</p>
-</div>
-    )
+        {username === comment.author ? (
+          <button onClick={handleDelete}>Delete</button>
+        ) : null}
+      </>}
+
+      {isDeleteError ? (
+        <p className="comment-error">
+          Something went wrong. Please try again later.
+        </p>
+      ) : null}
+    </div>
+  );
 }
 
-export default CommentCard
+export default CommentCard;

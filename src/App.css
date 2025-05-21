@@ -160,7 +160,7 @@ p {
   align-self: flex-end;
 }
 
-.post-comment-error {
+.comment-error {
   margin: 10px;
   text-align: center; 
   font-size: 14px; 
