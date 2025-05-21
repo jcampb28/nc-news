@@ -49,7 +49,6 @@ export function patchArticleVotes(article_id, inc_votes) {
 }
 
 export function postCommentOnArticle(article_id, comment) {
-  console.log(article_id, comment)
   return apiClient
     .post(`/articles/${article_id}/comments`, {
       username: comment.username,
@@ -61,4 +60,12 @@ export function postCommentOnArticle(article_id, comment) {
     .catch((err) => {
       return Promise.reject(err);
     });
+}
+
+export function deleteComment(comment_id) {
+  return apiClient
+  .delete(`/comments/${comment_id}`)
+  .catch((err) => {
+    return Promise.reject(err);
+  })
 }
