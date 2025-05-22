@@ -172,11 +172,12 @@ p {
   color: #521a68;
 }
 
-.filter-button {
+.query-button {
   font-size: 16px;
   color: #1a0f24;
   margin-left: 10px;
   margin-right: 10px;
+  margin-top: 5px;
   background-color: #fafcfd;
   width: 95%;
   border-top: 2px solid #165e6c;
@@ -188,7 +189,23 @@ p {
   padding-bottom: 3px;
 }
 
-.filter-list-option {
+.query-list-option {
+  font-size: 16px;
+  color: #1a0f24;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: #fafcfd;
+  width: 95%;
+  border-top: none;
+  border-bottom: 2px solid #3e96a8;
+  border-left: none;
+  border-right: none;
+  text-align: start;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.query-list-option-direction {
   font-size: 16px;
   color: #1a0f24;
   margin-left: 10px;

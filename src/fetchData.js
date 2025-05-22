@@ -5,9 +5,11 @@ const apiClient = axios.create({
   timeout: 1000,
 });
 
-export function fetchArticles(articleTopic) {
+export function fetchArticles(articleTopic, sorting, ordering) {
   return apiClient
-    .get("/articles", {params: {topic: articleTopic}})
+    .get("/articles", {
+      params: { topic: articleTopic, sort_by: sorting, order: ordering },
+    })
     .then((response) => {
       return response.data;
     })
@@ -55,7 +57,7 @@ export function postCommentOnArticle(article_id, comment) {
       body: comment.body,
     })
     .then((response) => {
-      return response.data
+      return response.data;
     })
     .catch((err) => {
       return Promise.reject(err);
@@ -63,20 +65,18 @@ export function postCommentOnArticle(article_id, comment) {
 }
 
 export function deleteComment(comment_id) {
-  return apiClient
-  .delete(`/comments/${comment_id}`)
-  .catch((err) => {
+  return apiClient.delete(`/comments/${comment_id}`).catch((err) => {
     return Promise.reject(err);
-  })
+  });
 }
 
 export function fetchTopics() {
   return apiClient
-  .get("/topics")
-  .then((response) => {
-    return response.data
-  })
-  .catch((err) => {
-    return Promise.reject(err);
-  })
+    .get("/topics")
+    .then((response) => {
+      return response.data;
+    })
+    .catch((err) => {
+      return Promise.reject(err);
+    });
 }
