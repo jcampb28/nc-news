@@ -1,16 +1,27 @@
 import { useEffect, useState } from "react";
 import { fetchArticles } from "../fetchData";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
 const [articles, setArticles] = useState([])
+const [isError, setIsError] = useState(false)
+const navigate = useNavigate()
 
     useEffect(() => {
     fetchArticles().then(({articles}) => {
       setArticles(articles)
+    }).then(() => {
+      navigate("/articles")
+    }).catch((err) => {
+      setIsError(true)
     });
   }, []);
 
-  return <p>This is a random article</p>
+  return (<>
+  {isError ? <p>Sorry, something went wrong. Please try again later.</p> : null}
+  <p>This is a random article</p>
+  </>)
+  
 }
 
 export default Home

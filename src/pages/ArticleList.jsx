@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ArticleCard from "../components/ArticleCard";
 import { fetchArticles, fetchTopics } from "../fetchData";
-import { Link, useParams, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
 
 function ArticleList() {
   const [articleList, setArticleList] = useState([]);
@@ -15,17 +15,30 @@ function ArticleList() {
   const [searchParams, setSearchParams] = useSearchParams();
   const sortByQuery = searchParams.get("sort_by");
   const orderByQuery = searchParams.get("order");
+  const navigate = useNavigate()
 
   useEffect(() => {
     fetchArticles(topic, sortByQuery, orderByQuery).then(({ articles }) => {
       setArticleList(articles.resultsArr);
       setIsLoading(false);
+    }).catch((err) => {
+      if (err.message.includes("timeout")) {
+        navigate("/timeout")
+      } else {
+        navigate("/page-not-found")
+      }
     });
   }, [topic, sortByQuery, orderByQuery]);
 
   useEffect(() => {
     fetchTopics().then(({ topics }) => {
       setTopicList(topics);
+    }).catch((err) => {
+      if (err.message.includes("timeout")) {
+        navigate("/timeout")
+      } else {
+        navigate("/page-not-found")
+      }
     });
   }, []);
 
@@ -64,25 +77,29 @@ function ArticleList() {
         Filter articles
       </button>
       {filterDrawerOpen ? (
-        <button className="query-list-option" key="all-articles">
-          <Link to="/articles">All articles</Link>
-        </button>
+        <Link to="/articles">
+          <button className="query-list-option" key="all-articles">
+            All articles
+          </button>
+        </Link>
       ) : null}
       {filterDrawerOpen
         ? topicList.map((topic) => {
             const filterLink = "/" + topic.slug;
             return (
-              <button className="query-list-option" key={topic.slug}>
-                <Link to={filterLink}>
+              <Link key={topic.slug} to={filterLink}>
+                <button className="query-list-option" >
                   {topic.slug.charAt(0).toUpperCase() + topic.slug.slice(1)}
-                </Link>
-              </button>
+                </button>
+              </Link>
             );
           })
         : null}
-      {topic ?  null: <button className="query-button" onClick={handleSortDrawer}>
-        Sort articles
-      </button>}
+      {topic ? null : (
+        <button className="query-button" onClick={handleSortDrawer}>
+          Sort articles
+        </button>
+      )}
       {sortDrawerOpen ? (
         <>
           <button

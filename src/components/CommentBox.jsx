@@ -9,6 +9,7 @@ function CommentBox(props) {
         type="text"
         id="comment-box"
         onChange={props.handleChange}
+        required
       />
       {props.formSubmitted ? (
         <p>Thanks!</p>

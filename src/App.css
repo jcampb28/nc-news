@@ -48,9 +48,14 @@ p {
 }
 
 .read-button {
-  width: 50px;
-  max-height: 30px;
   background-color: #d097e4;
+  border-radius: 2px;
+  padding: 3px;
+  margin-top: 70%;
+}
+
+.read-button:hover {
+  outline: 1px solid #165e6c;
 }
 
 .article-card-title {
@@ -163,6 +168,11 @@ p {
   width: 60px;
   background-color: #d097e4;
   align-self: flex-end;
+  border-radius: 2px;
+}
+
+.post-comment-button:hover {
+  outline: 1px solid #165e6c;
 }
 
 .comment-error {
@@ -219,4 +229,33 @@ p {
   text-align: start;
   padding-top: 3px;
   padding-bottom: 3px;
+}
+
+.error-page {
+  color: #1a0f24;
+  text-align: center;
+  margin-top: 50px;  
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.error-page-header {
+  color: #1a0f24;  
+}
+
+.error-page-sub-header {
+  color: #1a0f24;
+  opacity: 85%;
+  font-weight: normal;
+}
+
+.error-page-button {
+  background-color: #d097e4;
+  padding: 5px;
+  font-size: large;
+  border-radius: 3px;
+}
+
+.error-page-button:hover {
+  outline: 2px solid #165e6c;
 }
