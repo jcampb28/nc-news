@@ -5,9 +5,9 @@ const apiClient = axios.create({
   timeout: 1000,
 });
 
-export function fetchArticles() {
+export function fetchArticles(articleTopic) {
   return apiClient
-    .get("/articles")
+    .get("/articles", {params: {topic: articleTopic}})
     .then((response) => {
       return response.data;
     })
@@ -65,6 +65,17 @@ export function postCommentOnArticle(article_id, comment) {
 export function deleteComment(comment_id) {
   return apiClient
   .delete(`/comments/${comment_id}`)
+  .catch((err) => {
+    return Promise.reject(err);
+  })
+}
+
+export function fetchTopics() {
+  return apiClient
+  .get("/topics")
+  .then((response) => {
+    return response.data
+  })
   .catch((err) => {
     return Promise.reject(err);
   })
