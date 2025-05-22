@@ -1,12 +1,24 @@
-# React + Vite
+# Welcome to Mysterious Musings
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a web app that allows users to read, vote on and post comments to articles. 
 
-Currently, two official plugins are available:
+The default page serves users a list of article cards containing basic information, which they can sort and filter using drop-down selectors. A link on each card routes to a specific page for that article, where users can read the article and give up- or down-votes. Logged in users can also comment on the articles and delete their own comments (please note that there is currently a specific user hard-coded into the app).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Error handling includes automatic navigation to error pages for non-existent articles, bad paths and topic queries, and timeouts. Errors will also show for incorrect usage (such as non-logged-in users trying to post comments), and for PATCH/POST request issues (such as for dropped connection).
 
-## Expanding the ESLint configuration
+## Links
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The deployed version of the app can be found here: https://mysterious-musings.netlify.app
+
+The api server used was built using this repo: https://github.com/jcampb28/seeding-data
+
+## Running the project locally
+
+Minimum Node version: 23.10.0
+
+1. Clone the repo: `git clone https://github.com/jcampb28/nc-news.git`
+2. Navigate to the folder: `cd nc-news`
+3. Install dependencies: `npm install`
+4. Run the project: `npm run dev`
+
+*This portfolio project was created as part of a Digital Skills Bootcamp in Software Engineering provided by [Northcoders](https://northcoders.com/)*
