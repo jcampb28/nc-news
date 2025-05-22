@@ -14,7 +14,7 @@ function App() {
           <Route path="/" element={<Home/>}/>
           <Route path="/articles" element={<ArticleList />} />
           <Route path="/articles/:article_id" element={<SpecificArticle/>}/>
-          <Route path='/:topic' element={<ArticleList/>} />
+          <Route path='/:topic?' element={<ArticleList/>} />
         </Routes>
       </main>
     </>
