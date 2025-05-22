@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { fetchArticleByID, patchArticleVotes } from "../fetchData";
 import ArticleBlock from "../components/ArticleBlock";
 import CommentBlock from "../components/CommentBlock";
@@ -16,10 +16,18 @@ function specificArticle() {
 
   const [isError, setIsError] = useState(false);
 
+  const navigate = useNavigate()
+
   useEffect(() => {
     fetchArticleByID(article_id).then(({ article }) => {
       setSingleArticle(article);
       setIsArticleLoading(false);
+    }).catch((err) => {
+      if (err.message.includes("timeout")) {
+        navigate("/timeout")
+      } else {
+      navigate("/article-not-found")
+      }
     });
   }, [article_id]);
 

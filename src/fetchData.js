@@ -2,7 +2,7 @@ import axios from "axios";
 
 const apiClient = axios.create({
   baseURL: "https://nc-news-jc28.onrender.com/api",
-  timeout: 1000,
+  timeout: 2000,
 });
 
 export function fetchArticles(articleTopic, sorting, ordering) {
@@ -14,7 +14,7 @@ export function fetchArticles(articleTopic, sorting, ordering) {
       return response.data;
     })
     .catch((err) => {
-      console.log(err);
+      return Promise.reject(err);
     });
 }
 
@@ -25,7 +25,7 @@ export function fetchArticleByID(article_id) {
       return response.data;
     })
     .catch((err) => {
-      console.log(err);
+      return Promise.reject(err);
     });
 }
 
@@ -36,7 +36,7 @@ export function fetchArticleComments(article_id) {
       return response.data;
     })
     .catch((err) => {
-      console.log(err);
+      return Promise.reject(err);
     });
 }
 

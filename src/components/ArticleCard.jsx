@@ -11,9 +11,9 @@ function ArticleCard({ article }) {
         <p className="article-card-category">{article.topic}</p>
       </div>
 
-      <button className="read-button">
-        <Link to={specificLink}>Read</Link>
-      </button>
+      <Link to={specificLink}>
+        <button className="read-button">Read</button>
+      </Link>
     </li>
   );
 }

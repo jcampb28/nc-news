@@ -11,6 +11,7 @@ function CommentBlock({ article_id }) {
   const [commentError, setCommentError] = useState(false);
   const [newCommentInput, setNewCommentInput] = useState({});
   const [newComment, setNewComment] = useState({});
+  const [loginError, setLoginError] = useState(false)
 
   useEffect(() => {
     setAreCommentsLoading(true);
@@ -45,8 +46,13 @@ function CommentBlock({ article_id }) {
       })
       .catch((err) => {
         setFormSubmitted(false);
-        setCommentError(true);
+        if (!username) {
+          setLoginError(true)
+        } else {
+          setCommentError(true);
+        }
       });
+    
   }
 
   return (
@@ -56,6 +62,11 @@ function CommentBlock({ article_id }) {
       {commentError ? (
         <p className="comment-error">
           Something went wrong. Please try again later.
+        </p>
+      ) : null}
+      {loginError ? (
+        <p className="comment-error">
+          You must be logged in to post a comment.
         </p>
       ) : null}
       {formSubmitted ? (
