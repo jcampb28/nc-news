@@ -7,8 +7,8 @@ function ArticleCard({ article }) {
       <img className="article-card-img" src={article.article_img_url} alt="" />
       <div className="article-card-text">
         <h3 className="article-card-title">{article.title}</h3>
-        <p className="article-card-author">{article.author}</p>
-        <p className="article-card-category">{article.topic}</p>
+        <p className="article-card-info">{article.author}</p>
+        <p className="article-card-info">{article.topic}</p>
       </div>
 
       <Link to={specificLink}>

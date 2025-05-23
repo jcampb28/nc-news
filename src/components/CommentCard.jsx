@@ -27,7 +27,7 @@ function CommentCard({ comment, username }) {
         <p className="comment-body">{comment.body}</p>
         <p className="comment-info">Votes: {comment.votes}</p>
         {username === comment.author ? (
-          <button onClick={handleDelete}>Delete</button>
+          <button className="delete-comment-button" onClick={handleDelete}>Delete</button>
         ) : null}
       </>}
 
