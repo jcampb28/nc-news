@@ -18,8 +18,8 @@ const navigate = useNavigate()
   }, []);
 
   return (<>
-  {isError ? <p>Sorry, something went wrong. Please try again later.</p> : null}
-  <p>Loading cool articles...</p>
+  {isError ? <p>Sorry, something went wrong. Please try again later.</p> : <p>Loading cool articles...</p>}
+  
   </>)
   
 }
