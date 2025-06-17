@@ -19,7 +19,7 @@ const navigate = useNavigate()
 
   return (<>
   {isError ? <p>Sorry, something went wrong. Please try again later.</p> : null}
-  <p>This is a random article</p>
+  <p>Loading cool articles...</p>
   </>)
   
 }
