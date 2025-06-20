@@ -1,5 +1,4 @@
 function ArticleBlock({ singleArticle, hasVoted, newVoteCount }) {
-
   return (
     <>
       <h2 className="article-title">{singleArticle.title}</h2>
