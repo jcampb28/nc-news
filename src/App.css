@@ -58,6 +58,7 @@ p {
   max-width: 150px;
   margin-left: 10px;
   margin-top: 5px;
+  text-decoration: none;
 }
 
 .article-card {
@@ -97,9 +98,27 @@ p {
   border-radius: 2px;
   padding: 3px;
   margin-top: 70%;
+  box-shadow: 2px 1px 1px #521a68;
 }
 
 .read-button:hover {
+  outline: 1px solid #165e6c;
+}
+
+.full-article-button {
+  background-color: #d097e4;
+  border-radius: 2px;
+  padding: 3px;
+  margin-left: 10px;
+  box-shadow: 2px 1px 1px #521a68;
+  display: flex;
+  align-self: flex-end;
+  width: fit-content;
+  color: #1a0f24;
+  text-decoration: none;
+}
+
+.full-article-button:hover {
   outline: 1px solid #165e6c;
 }
 
@@ -135,6 +154,15 @@ p {
 .article {
   color: #1a0f24;
   display: block;
+}
+
+.random-article {
+  color: #1a0f24;
+  display: block;
+  border: 2px solid #165e6c;
+  margin-top: 5%;
+  box-shadow: 5px 3px 3px #5c4d5f;
+  padding-bottom: 15px;
 }
 
 .article-title {
