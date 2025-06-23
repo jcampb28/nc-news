@@ -161,8 +161,10 @@ p {
   display: block;
   border: 2px solid #165e6c;
   margin-top: 5%;
+  padding-left: 2%;
+  padding-right: 2%;
   box-shadow: 5px 3px 3px #5c4d5f;
-  padding-bottom: 15px;
+  padding-bottom: 2%;
 }
 
 .article-title {
@@ -381,4 +383,11 @@ p {
 
 .error-page-button:hover {
   outline: 2px solid #165e6c;
+}
+
+.nav-bar {
+  display: grid;
+  color: #165e6c;
+  text-decoration: none;
+  margin-top: 3%;
 }

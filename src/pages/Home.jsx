@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchArticleByID, fetchArticles } from "../fetchData";
 import { Link } from "react-router-dom";
 import ArticleBlock from "../components/ArticleBlock";
+import NavBar from "../components/NavBar";
 
 function Home() {
   const [isError, setIsError] = useState(false);
@@ -11,7 +12,9 @@ function Home() {
   useEffect(() => {
     fetchArticles()
       .then(({ articles }) => {
-        const randomNum = Math.floor(Math.random() * (articles.total_count - 1) + 1)
+        const randomNum = Math.floor(
+          Math.random() * (articles.total_count - 1) + 1
+        );
         fetchArticleByID(randomNum).then(({ article }) => {
           setRandomArticle(article);
           setIsLoading(false);
@@ -24,12 +27,18 @@ function Home() {
 
   return (
     <>
+      <NavBar />
       {isLoading ? (
         <p>Loading cool articles...</p>
       ) : (
         <div className="random-article">
           <ArticleBlock singleArticle={randomArticle} />
-          <Link to={`/articles/${randomArticle.article_id}`} className="full-article-button">View full article</Link>
+          <Link
+            to={`/articles/${randomArticle.article_id}`}
+            className="full-article-button"
+          >
+            View full article
+          </Link>
         </div>
       )}
     </>
