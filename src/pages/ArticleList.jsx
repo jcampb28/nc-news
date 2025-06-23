@@ -95,11 +95,11 @@ function ArticleList() {
             );
           })
         : null}
-      {topic ? null : (
+      
         <button className="query-button" onClick={handleSortDrawer}>
           Sort articles
         </button>
-      )}
+      
       {sortDrawerOpen ? (
         <>
           <button
