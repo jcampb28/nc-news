@@ -80,3 +80,13 @@ export function fetchTopics() {
       return Promise.reject(err);
     });
 }
+
+export function fetchUser(username) {
+  return apiClient.get(`/users/${username}`)
+  .then((response) => {
+    return response.data
+  })
+  .catch((err) => {
+    return Promise.reject(err)
+  })
+}

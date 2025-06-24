@@ -7,6 +7,7 @@ import SpecificArticle from "./pages/SpecificArticle";
 import ArticleNotFound from "./pages/ArticleNotFound";
 import PageNotFound from "./pages/PageNotFound";
 import Timeout from "./pages/Timeout";
+import UserPage from "./pages/UserPage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/article-not-found" element={<ArticleNotFound />}/>
           <Route path="page-not-found" element={<PageNotFound />} />
           <Route path="/timeout" element={<Timeout />} />
+          <Route path="/users/:username" element={<UserPage />} />
         </Routes>
       </main>
     </>
