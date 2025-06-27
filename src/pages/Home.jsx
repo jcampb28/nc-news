@@ -28,6 +28,7 @@ function Home() {
   return (
     <>
       <NavBar />
+      <h2 className="random-read-header">Current Random Read</h2>
       {isLoading ? (
         <p>Loading cool articles...</p>
       ) : (

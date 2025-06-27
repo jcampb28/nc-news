@@ -38,12 +38,13 @@ ul {
 
 h1 {
   color: #521a68;
+  font-size: 36px;
 }
 
 h2 {
   color: #1a0f24;
   margin: 10px;
-  font-size: 6.5vw;
+  font-size: 26px;
   @media screen and (min-width: 461px) {
     font-size: 30px;
   }
@@ -51,12 +52,21 @@ h2 {
 
 p {
   color: #1a0f24;
-  font-size: 18px;
+  font-size: 14px;
+  @media screen and (min-width: 461px) {
+    font-size: 18px;
+  }
 }
 
 .app-name {
   max-width: 150px;
   margin-left: 10px;
+  margin-top: 5px;
+  text-decoration: none;
+}
+
+.logo {
+  max-width: 200px;
   margin-top: 5px;
   text-decoration: none;
 }
@@ -110,8 +120,7 @@ p {
   padding: 3px;
   margin-left: 10px;
   box-shadow: 2px 1px 1px #521a68;
-  display: flex;
-  align-self: flex-end;
+  float: right;
   width: fit-content;
   color: #1a0f24;
   text-decoration: none;
@@ -162,10 +171,11 @@ p {
   margin-top: 5%;
   padding-left: 2%;
   padding-right: 2%;
-  box-shadow: 5px 3px 3px #5c4d5f;
-  padding-bottom: 2%;
+  box-shadow: 5px 3px 3px #3e96a8;
+  padding-bottom: 35px;
   margin-left: 10px;
   margin-right: 10px;
+  border-radius: 3px;
 }
 
 .article-title {
@@ -199,7 +209,10 @@ p {
 
 .comment-info {
   color: #5c4d5f;
-  font-size: 16px;
+  font-size: 12px;
+  @media screen and (min-width: 461px) {
+    font-size: 16px;
+  }
 }
 
 .comment-body {
@@ -286,6 +299,7 @@ p {
   max-height: 30px;
   width: 60px;
   background-color: #d097e4;
+  box-shadow: 2px 1px 1px #521a68;
   align-self: flex-end;
   border-radius: 2px;
 }
@@ -386,7 +400,7 @@ p {
 }
 
 .nav-bar {
-  border-bottom: 1px solid #5c4d5f;
+  border-bottom: 2px solid #165e6c;
   padding-bottom: 4px;
   margin-left: 10px;
   margin-right: 10px;
@@ -394,7 +408,7 @@ p {
 
 .nav-bar-item {
   display: grid;
-  color: #165e6c;
+  color: #1a0f24;
   text-decoration: none;
   margin-top: 3%;
   padding-bottom: 5px;
@@ -409,6 +423,7 @@ p {
   grid-template-columns: auto auto;
   grid-template-areas: "app-name user-icon";
 }
+
 
 .user-icon {
   width: 60px;
@@ -427,4 +442,8 @@ p {
 
 .user-profile-paragraph {
   margin-left: 10px;
+}
+
+.random-read-header {
+  margin-top: 5%;
 }
